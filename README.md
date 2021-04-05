@@ -213,6 +213,40 @@ for 반복문을 이용한 덧셈
     //출력
     console.log(output);
 ```
+### 역 for 반복문
+배열 반복을 뒤에서부터 실행해야 할때 사용하는 for문의 형태이다.
+```javascript
+    //for반복문을 역으로 사용할때의 기본형태
+    for (let i = length -1;i >=0; i--){
+        
+    }
+```
+### for in 반복문과 for of 반복문
+for in 반복문과 for of 반복문은 객체에 쉽게 반복문을 적용할 때 사용한다.  
+for in 반복문과 for of 반복문은 사용과 역할이 같다.
+```javascript
+    for(let 인덱스 in 배열){
+
+    }
+    for(let 인덱스 of 배열){
+
+    }
+```
+배열을 사용한 for in,for of 반복문
+```javascript
+    //변수 선언
+    let array = ["사과","배","포도","딸기","바나나"];
+    //반복 수행
+    for (let i in array){
+        //출력
+        console.log(`${i}번째 요소: ${array[i]}`);
+    }
+    console.log("------ 구분선 -----");
+    // 반복 수행
+    for (let item of array){
+        //출력
+        console.log(item);
+    }
 ## [3월23일]
 ## [03월16일]
 > 오늘 배운 내용 요약 <br>
