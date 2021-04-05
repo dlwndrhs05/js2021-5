@@ -25,7 +25,7 @@
 중첩 조건문의 중괄호를 생략했을 때 만든 조건문이 if else if 조건문이다.  
 if else if 조건문은 중복되지 않는 세 가지 이상의 조건을 구분할 때 사용한다.  
 
-    ```javascript
+```javascript
         if(<불 표현식>){
 
         } else if (<불 표현식>){
@@ -35,7 +35,7 @@ if else if 조건문은 중복되지 않는 세 가지 이상의 조건을 구�
         } else {
 
         }  
-    ```
+```
 ### swithc 조건문
 
         ```javascript
