@@ -1,4 +1,68 @@
 # 이중곤 [201930323]
+## [4월 06일]
+
+#### 중첩 반복분
+4-7-8
+```javascript
+
+//예제 4-7
+let output = "";
+
+for(let i = 0; i< 10; i++){
+    for(let j = 0; j < i+ 1; j++){
+        output += '*';
+    }
+    output += '\n';
+}
+
+output +="\n"; //예제 4-8과 분리를 위해 추가
+console.log(output);
+
+//예제 4-8
+for (let i =0; i<10; i++){
+    for(let j = 0; j <10 - i; j++){
+        output +=' ';
+    }
+    for(let j= 0; k <i+1;j++){
+        output += '*';
+    }
+    output +='\n';
+}
+console.log(output);
+//추가 예제 삼각형 만들기
+for(let i = 0; i <10; 10++){
+    for(let j = 0; j <10-i; j++){
+        output += " ";
+    }
+    for(let j = 0; j <i+1; j++){
+        output += "*";
+    }
+    for(let j = 1 j< i+1; j++){
+        output += "\n";
+    }
+}
+console.log(output);
+```
+
+#### break키워드
+
+break 키워드는 switch 조건문이나 반복문을 벗어날 때 사용
+
+4-9
+```javascript
+let i =0;
+let array = [1,31,273,57,8,11,32];
+let output;
+
+while (true){
+    if (array[i]%2==0){
+        output = array[i];
+        break;
+    }
+    i = i+1; //i++ ,i+=1;
+}
+console.log('처음 발견한 짝수는 ${output}입니다.');
+```
 ## [3월 30일]
 #### 중첩 조건문
 
