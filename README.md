@@ -30,7 +30,7 @@ for (let i =0; i<10; i++){
 }
 console.log(output);
 //추가 예제 삼각형 만들기
-for(let i = 0; i <10; 10++){
+for(let i = 0; i <10; i++){
     for(let j = 0; j <10-i; j++){
         output += " ";
     }
