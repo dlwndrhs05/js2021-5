@@ -38,8 +38,9 @@ for(let i = 0; i <10; i++){
         output += "*";
     }
     for(let j = 1; j< i+1; j++){
-        output += "\n";
+        output += "*";
     }
+    output +="\n";
 }
 console.log(output);
 ```
