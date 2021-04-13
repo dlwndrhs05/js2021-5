@@ -1,4 +1,25 @@
 # 이중곤 [201930323]
+
+## [4월 13일]
+
+### 익명 함수
+
+```javascript
+//함수생성법
+let<함수이름> = funtion (){};
+```
+
+```javascript
+//code 5-1 익명함수
+let foo =function(){
+    console.log("첫번째 함수")
+    console.log("두번째 함수")
+};
+
+foo();
+console.log(foo); //출력값 [Function: foo] (함수 자체를 출력)
+```
+
 ## [4월 06일]
 
 #### 중첩 반복분
