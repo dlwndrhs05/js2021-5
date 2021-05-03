@@ -3,25 +3,60 @@
 ## [4월 27일]
 
 ### 타이머 함수
-setTimeout(함수,시간) 특정 시간 후에 함수를 실행
-setInterval(함수,시간) 특정 시간 마다 함수를 실행
-시간은 밀리초 단위로 지정 
-1초=1000밀리초를 입력해야 한다.
+setTimeout(함수,시간) 특정 시간 후에 함수를 실행  
+setInterval(함수,시간) 특정 시간 마다 함수를 실행  
+시간은 밀리초 단위로 지정   
+1초=1000밀리초를 입력해야 한다.  
 
-claerInterval( ) 특정 시간마다 실행하던 함수 호출을 정지
-setInterval( ) 함수로 지정한 타이머는 cleaInterval( ) 함수로 끌수있다.
+claerInterval( ) 특정 시간마다 실행하던 함수 호출을 정지  
+setInterval( ) 함수로 지정한 타이머는 cleaInterval( ) 함수로 끌수있다.  
 
 ```javascript
+//setTimeout( ) 을 이용한 코드
 // 1초마다
-let foo = setInterval(function ()){
+let foo = setInterval(function ( )){
     console.log("출력합니다.");
 }, 1000);
 
 //3초 후에
-setTimeout(function ()){
+setTimeout(function ( )){
     //타이머 제거
-    clearInterval(id);
+    clearInterval(foo);
 }
+```
+
+익명함수와 선억적 함수의 우선순위
+```javascript
+//변수 덮어쓰기
+let foo;
+foo = 10;
+foo = 20;
+foo = "세번째"
+console.log(foo);
+```
+결과값은 세번째이다  
+
+
+동일한 이름으로 변수를 선언했을경우는 맨마지막에 선언한 변수가 덮어씌어서 변수값이변한다.  
+함수 또한 변수와 마찬가지로 동일한 이름으로 함수를 선언했을 경우 맨마지막에 선언한 함수가 덮어씌어서 함수값이 변한다.
+
+```javascript
+let foo;
+foo = function ( ) =>{ console.log ("1st"); };
+foo = function ( ) =>{ console.log ("2nd"); };
+
+foo( );
+```
+결과값은 2nd 다
+
+자바스크립트의 경우 위에서부터 한 줄 한 줄 읽어 내려가며 함수를 선언하고 변수에 할당하기 때문에 가능하다  
+하지만 선언적 함수의 경우는 조금 다르다
+
+선언적 함수의 경우 '코드를 실행하기 전'에 생성이 되며 이후에 익명함수를 만든다.
+
+```javascript
+foo = function ( ) =>{ console.log ("1st"); };
+function bar( ) { console.log ("2nd"); };
 ```
 ## [4월 13일]
 
@@ -29,7 +64,7 @@ setTimeout(function ()){
 
 ```javascript
 //함수생성법
-let<함수이름> = funtion (){};
+let<함수이름> = funtion ( ){};
 ```
 이름을 붙이지 않고 함수 생성시 익명함수 이름을 붙여 함수를 생성하면 선언적 함수  
 자바스크립의 함수는 자료형이기 때문에 숫자,문자열,불처럼 변수에 넣어서 사용
