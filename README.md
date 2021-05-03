@@ -8,8 +8,8 @@ setInterval(함수,시간) 특정 시간 마다 함수를 실행
 시간은 밀리초 단위로 지정 
 1초=1000밀리초를 입력해야 한다.
 
-claerInterval() 특정 시간마다 실행하던 함수 호출을 정지
-setInterval() 함수로 지정한 타이머는 cleaInterval() 함수로 끌수있다.
+claerInterval( ) 특정 시간마다 실행하던 함수 호출을 정지
+setInterval( ) 함수로 지정한 타이머는 cleaInterval( ) 함수로 끌수있다.
 
 ```javascript
 // 1초마다
