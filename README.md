@@ -22,6 +22,7 @@ setTimeout(function ()){
     //타이머 제거
     clearInterval(id);
 }
+```
 ## [4월 13일]
 
 ### 익명 함수
