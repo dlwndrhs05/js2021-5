@@ -85,6 +85,7 @@ function ( ){
 
 foo(); //자세한것은 6장 객체에서 나올 경우 다시 공부
 ```
+  
 
 ### 객체
 
@@ -131,6 +132,7 @@ for (let key in foo){
     console.log(`${key}: ${foo[key]}`); //배열에 있는 속성값을 하나씩 출력
 }
 ```
+ 
 
 ### 속성과 메소드
 요소: 배열 내부에 있는 값 하나 하나  
@@ -149,6 +151,44 @@ let foo = {
         console.log(`${this.name}`)-`${this.price}`); 
     } //출력값 건조망고 - 1200
 };
+```
+
+### 생성자 함수와 프로토타입
+
+객체지향 프로그래밍: 현실의 객체를 모방해서 프로그래밍하는 것
+```javascript
+//함수를 외부로 보낸형태
+//객체 배열
+let product = [
+    {name:'사과',price: 1200},
+    {name:'배' ,price:1500},
+    {name:'자두' ,price:1000},
+    {name:'딸기' ,price:2000},
+    {name:'바나나' ,price:1500},
+    //function( ) {...}; 펑션을 객체안에 넣어도 가능하나 가독성이 떨어진다
+];
+function printProduct(bar){
+    console.log(`${bar.name}-${bar.price}`);// 네임키의 객체속성출력 - 프라이스키의 객체속성출력
+}
+for (let foo of product){
+    printProduct(foo); 
+}
+```
+객체 지향 프로그래밍관점에서는 책 167p의 6-10코드 처럼 product.print( ) 형태로 코드를 작성해야 한다.  
+print( ) 메소드는 product 객체의 '기능'이기때문이다  
+### 생성자 함수
+생성자 함수(Constrictor)는 '객체를 만드는 함수'
+```javascript
+//생성자 함수를 사용한 객체 생성
+fuction Product(foo,bar){
+    this. = foo;
+    this.price = bar;
+}
+//객체 생성
+let product = new Product("바나나",200);
+
+//출력
+console.log(product);
 ```
 ## [4월 13일]
 
@@ -170,8 +210,6 @@ let foo =function(){
 foo();
 console.log(foo); //출력값 [Function: foo] (함수 자체를 출력)
 ```
-
-### 생성자 함수와 프로토 타입
 ## [4월 06일]
 
 #### 중첩 반복분
