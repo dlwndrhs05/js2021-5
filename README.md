@@ -1,5 +1,65 @@
 # 이중곤 [201930323]
 
+## [5월 4일]
+
+### 프로토타입
+생성자 함수로 만든 객체는 프로토타입 공간에 메소드를 지정해서 모든객체가 공유 하도록 한다.  
+해당함수를 생성자 함수로 사용했을 때만 의미가 있다.
+
+```javascript
+//프로토타입을 사용한 메소드 생성
+//생성자 함수
+function Prouduct(name,price){
+    this.name = name;
+    this.price = price;
+}
+//프로토 타입에 메소드를 선언
+Product.prototype.print = fuction ( ){
+    consol.log(`${product.name}의 가격은 ${product.price}원입니다.`);
+};
+
+// 객체를 생성
+let product = new Product("바나나",1200);
+
+//호출
+product.print( );
+```
+
+### null값과 자료형
+
+null은변수 처럼 활용할 수 있다.  
+변수를 선언하고 값을 넣지 않으면 undefined가 된다. 일반적으로 undefined는 인위적으로 만들 때 사용한다.
+
+
+0,NaN," "(빈문자열),null,undefined는 false로 변환된다. 이중에서 0,NaN," "(빈문자열)은 값만 false로 변환될 뿐이지 실제로는 값이 들어 있다.  
+아예 값이 없는 상태를 구분할때는 null을 사용한다.
+
+### 표준내장객체
+참고 사이트 모질라:https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects
+
+### 기본 자료형과 객체 자료형의 차이
+```javascript
+// 기본 자료형
+let number = 273; //숫자
+let string = '안녕하세요'; //문자열
+let boolean = true; //불
+
+// 자료형을 출력
+console.log(typeof number); //결과값은 number
+console.log(typeof string); //결과값은 tring
+console.log(typeof boolean);//결과 값은 boolean
+
+//객체 자료형
+let number = new Number(273); 
+let String = new String('안녕하세요');  
+let boolean = new Boolean(true);
+
+//자료형 출력
+console.log(typeof number); //결과값은 object
+console.log(typeof string); //결과값은 object
+console.log(typeof boolean); //결과값은 object
+```
+
 ## [4월 27일]
 
 ### 타이머 함수
