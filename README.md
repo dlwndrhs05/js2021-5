@@ -38,6 +38,7 @@ null은변수 처럼 활용할 수 있다.
 참고 사이트 모질라:https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects
 
 ### 기본 자료형과 객체 자료형의 차이
+
 ```javascript
 // 기본 자료형
 let number = 273; //숫자
@@ -60,6 +61,39 @@ console.log(typeof string); //결과값은 object
 console.log(typeof boolean); //결과값은 object
 ```
 
+기본 자료형과 객체 자료형 모두 속성과 메소드를 사용할 수 있다.  
+속성과 메소드는 객체가 가질 수 있는데 숫자,문자열,불 등 기본 자료형도 속성과 메소드를 가지고 있다.  
+기본자료형의 속성 또는 메소드를 사용할 때 기본 자료형이 자동으로 객체로 변환되기 때문이다.  
+
+
+기본 자료형 숫자의 속성이나 메소드를 사용하면, 자동으로 객체 자료형으로 변환되어 속성이나 메소드를 사용할 수 있다.  
+따라서 기본 자료형과 객체의 차이점을 찾기가 어렵다. 굳이 차이점을 찾자면 기본 자료형은 객체가 아니므로 속성과 메소드를 추가가 불가능하다.
+기본 자료형이 객체로 변활될때는 한번만 사용하고 값이 바로 버려지며 기본자료형의 메소드를 사용한다는 것은 기본 자료형에 일회용 객체를 입히고 
+속성 또는 메소드를 사용하는 것이다.
+
+기본 자료형에 속성 또는 메소드를 추가하는 방법은 프로토타입을 이용하여 추가할수있다.
+
+```javascript
+// 기본 자로형에 속성 또는 메소드 추가
+let foo = 273;
+let bar = 513;
+//메소드 추가
+Number.prototype.method = function () {
+    return "hello"; 
+}
+
+console.log(foo.method()); //결과값은 hello
+console.log(bar.method()); //결과값은 hello
+```
+
+### Number 객체
+
+Number 객체는 자바스크립트에서 숫자를 표현할 때 사용한다.
+```javascript
+//Number 객체 생성
+let numberFromLiteral = 273;
+let numberFromConstructor = new Number(273);
+```
 ## [4월 27일]
 
 ### 타이머 함수
