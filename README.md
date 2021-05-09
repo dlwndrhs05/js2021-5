@@ -94,6 +94,15 @@ Number 객체는 자바스크립트에서 숫자를 표현할 때 사용한다.
 let numberFromLiteral = 273;
 let numberFromConstructor = new Number(273);
 ```
+
+### Number 메소드
+
+|:메소드|:설명|
+|:toExponentia( )|:숫자를 지수 표시로 나타낸 문자열을 리턴|
+|:toFixed( )|:숫자를 고정 소수점 표시로 나타낸 문자열을 리턴|
+|:toPrecision( )|:숫자를 길이에 따라 지수 표시 또는 고정소수점 표시로 나타낸 문자열을 리턴|
+
+
 ## [4월 27일]
 
 ### 타이머 함수
