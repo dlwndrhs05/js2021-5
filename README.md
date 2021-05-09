@@ -147,6 +147,23 @@ String 객체는 length속성을 가진다
 |객체|속성|
 |:-----|:----|
 |length|문자열의 길이를 나타낸다|
+
+|메소드|설명|
+|:----|:----|
+|charAt(position)|position에 위치하는 문자리턴|  
+|charCodeAt(position)|position에 위치하는 문자의 유니코드 번호를 리턴|  
+|concat(args)|매개 변수로 입력한 문자열을 이어 리턴|  
+|indexOf(searchString.position)|앞에서부터 일치하는 문자열의 위치를 리턴|  
+|lastindexOf(searchString.position)|뒤에서부터 일치하는 문자열의 위치를 리턴|  
+|match(regExp)|문자열 안에 regExp가 있는지 확인한다.|  
+|replace(regExp,replacement)|regExp를 replacement로 바꾼 후 리턴|  
+|search(regExp)|regExp와 일치하는 문자열의 위치를 리턴|  
+|slice(start,end)|특정 위치의 문자열을 추출해 리턴|  
+|split(separator,limit)|separator로 문자열을 잘라 배열을 리턴|  
+|substr(start,count)|start부터 count만큼 문자열을 잘라서 리턴|  
+|substring(start,end)|start부터 end까지 문자열을 잘라서 리턴|  
+|toLowerCase( )|문자열을 소문자로 리턴|  
+|toUpperCase( )|문자열을 대문자로 리턴|  
 ```javascript
 let foo = "abcdefg";
 let bar = foo.toUpperCase( );
