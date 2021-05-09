@@ -52,7 +52,7 @@ console.log(typeof boolean);//결과 값은 boolean
 
 //객체 자료형
 let number = new Number(273); 
-let String = new String('안녕하세요');  
+let string = new String('안녕하세요');  
 let boolean = new Boolean(true);
 
 //자료형 출력
@@ -112,7 +112,16 @@ console.log(number.toFixed(5)); //결과값 25.12300
 ```
 #### 생성자 함수의 속성
 생성자 함수에 속성과 메소드 추가
+```javascript
+function Construtor( ){ }
+Construtor.foo = 273;
+Construtor.bar = function ( ) { };
 
+console.log(Construtor.foo); //결과값 273
+console.log(Construtor.bar); //결과값 [function(anonymous)]
+```
+
+생성자 함수의 속성  
 |속성|설명|  
 |:---|:---|  
 |MAX_VALUE|자바스크립트의 숫자가 나타낼 수 있는 최대 숫자|  
@@ -120,6 +129,35 @@ console.log(number.toFixed(5)); //결과값 25.12300
 |NaN|자바스크립트의 숫자로 나타낼 수 없는 숫자|  
 |POSITIVE_INFINITY|양의 무한대 숫자|  
 |NEGATIVE_INFINITY|음의 무한대 숫자|
+
+```javascript
+let foo = Number.Max_VALUE;
+let bar = Number.Max_VALUE;
+
+console.log(foo);
+console.log(bar); //값이 foo와 같다 
+                 //자바스크립트내에서 오버플로우 되어도 최대값만 출력
+```
+
+### String 객체
+
+#### 속성과 메소드
+
+String 객체는 length속성을 가진다
+|객체|속성|
+|:-----|:----|
+|length|문자열의 길이를 나타낸다|
+```javascript
+let foo = "abcdefg";
+let bar = foo.toUpperCase( );
+let foobar = bar.toLowerCase ( );
+
+
+console.log(foo); //출력값 abcdefg
+console.log(bar); //출력값 ABCDEFG
+console.log(foobar); //출력값 abcdefg
+```
+
 
 ## [4월 27일]
 
