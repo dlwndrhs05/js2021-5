@@ -25,7 +25,7 @@ let product = new Product("바나나",1200);
 product.print( );
 ```
 
-### null값과 자료형
+#### null값과 자료형
 
 null은변수 처럼 활용할 수 있다.  
 변수를 선언하고 값을 넣지 않으면 undefined가 된다. 일반적으로 undefined는 인위적으로 만들 때 사용한다.
@@ -37,7 +37,7 @@ null은변수 처럼 활용할 수 있다.
 ### 표준내장객체
 참고 사이트 모질라:https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects
 
-### 기본 자료형과 객체 자료형의 차이
+#### 기본 자료형과 객체 자료형의 차이
 
 ```javascript
 // 기본 자료형
@@ -95,7 +95,7 @@ let numberFromLiteral = 273;
 let numberFromConstructor = new Number(273);
 ```
 
-### Number 메소드
+#### Number 메소드
 
 |메소드|설명|  
 |:---|:---|
@@ -103,6 +103,23 @@ let numberFromConstructor = new Number(273);
 |toFixed( )|숫자를 고정 소수점 표시로 나타낸 문자열을 리턴|  
 |toPrecision( )|숫자를 길이에 따라 지수 표시 또는 고정소수점 표시로 나타낸 문자열을 리턴|  
 
+```javascript
+//toFixed ( ) 메소드를 사용한 Number 메소드
+let foo = 25.123;
+
+console.log(number.toFixed(1)); //결과값 25.1
+console.log(number.toFixed(5)); //결과값 25.12300
+```
+#### 생성자 함수의 속성
+생성자 함수에 속성과 메소드 추가
+
+|속성|설명|  
+|:---|:---|  
+|MAX_VALUE|자바스크립트의 숫자가 나타낼 수 있는 최대 숫자|  
+|MIN_VALUE|자바스크립트의 숫자가 나타낼 수 있는 최소 숫자|  
+|NaN|자바스크립트의 숫자로 나타낼 수 없는 숫자|  
+|POSITIVE_INFINITY|양의 무한대 숫자|  
+|NEGATIVE_INFINITY|음의 무한대 숫자|
 
 ## [4월 27일]
 
