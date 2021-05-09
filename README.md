@@ -157,6 +157,20 @@ console.log(foo); //출력값 abcdefg
 console.log(bar); //출력값 ABCDEFG
 console.log(foobar); //출력값 abcdefg
 ```
+#### 메소드 활용
+
+```javascript
+//indexOF( )메소드
+//변수선언
+let foo ='안녕하세요. 좋은 아침입니다.';
+
+if (foo.indexOf('아침') > = 0) {
+    console.log("굿모닝");
+}
+else{
+    console.log("굿나잇");
+}
+```
 
 
 ## [4월 27일]
