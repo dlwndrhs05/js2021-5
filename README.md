@@ -1,5 +1,8 @@
 # 이중곤 [201930323]
 
+## [5월 11일]
+
+
 ## [5월 4일]
 
 ### 프로토타입
@@ -132,7 +135,7 @@ console.log(Construtor.bar); //결과값 [function(anonymous)]
 
 ```javascript
 let foo = Number.Max_VALUE;
-let bar = Number.Max_VALUE;
+let bar = Number.Max_VALUE+100;
 
 console.log(foo);
 console.log(bar); //값이 foo와 같다 
