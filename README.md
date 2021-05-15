@@ -163,6 +163,128 @@ bar.sort((foo, bar) => {
 });
 console.log(bar);
 ```
+#### ECMAScript5에서 추가된 메소드
+모질라 Araay  
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+|메소드|설명|
+|:---|:---|
+|forEach( )|배열의 요소를 하나씩 뽑아 반복하여 돌림|
+|map( )|콜백 함수에서 리턴하는 것을 기반으로 새로운 배열을 생성|
+|filter( )|콜백 함수에서 true를 리턴하는 것으로만 새로운 배열을 만들어 리턴|
+위에 3개의 메소드는 가장 사용 빈도가 높다  
+콜백 함수를 매개 변수로 받는다
+```javascript
+//ECMAScript5에서 추가된 Array객체의 메소드 콜백 함수 형태
+[52,273,32].forEach((item,index) => {
+
+});
+```
+```javascript
+//배열 선언
+let foo=[52,273,32,64,72];
+//forEach( )메소드
+foo.forEach((item,index) => {
+    console.log(`${index} - ${item}`);
+});
+// map( )메소드
+let bar = foo.mpa((item,index) => {
+    return item*item;
+});
+console.log(bar);
+//filter( )메소드
+console.log( );
+let foobar = foo.fiter((item,index) => {
+    return item % 2 ==0; //짝수만 return
+})
+console.log(foobar);
+```
+### 프로토 타입에 메소드 추가
+
+프로토 타입에 메소드를 추가하면 해당 자료형 전체에 추가 할 수 있다.  
+String 생성자 함수의 protype 속성에 contain( ) 메소드를 추가한다.
+```javascript
+//프로토타입에 메소드 추가
+String.protype.contain = function (input){
+    return this.indexOf(input) >= -1;
+};
+//메소드를 활용한다.
+console.log('안녕하세요'.contain('안녕'));
+console.log('안녕하세요'.contain('데굴데굴'));
+```
+화살표 함수는 사용할 수 없다.  
+익명 함수에서 this는 자기 자신을 나타내지만, 화살표 함수에서 this는 최상위객체를 의미하기 때문
+
+#### underscore.js 라이브러리
+```javascript
+>npm install underscore underscore라이브러리 설치
+```
+```html
+<script src="http://underscorejs.org/underscore.js"></script> <!--언더 스코어 라이브러리 사용스크립트-->
+```
+underscore.js 라이브러리를 사용한 정렬 속성 price,name
+
+```html
+<!--underscore.js 라이브러리를 사용한 정렬-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script src="underscore-umd-min.js"></script>
+    <script>
+        let foo = [
+            {
+                name: "고구마",
+                price:1000
+            },
+            {
+                name: "감자",
+                price:1000
+            },
+            {
+                name: "바나나",
+                price:1000
+            },
+        ];
+        const bar = _.sortBy(foo,(item)=> item.price);
+        console.log(bar);
+        const foobar = _.sortBy(foo,(item)=> item.name);
+        console.log(foobar);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+```
+#### json 객체
+JSON(JavaScript Object Notation) 자바스크립트 객체를 사용한 데이터 표현 방법
+JSON에는 몇 가지 제약이 있다
+문자열은 큰따옴표로 만들어야 한다.  
+모든 키는 큰따옴표로 감싸야 한다.  
+숫자,문자열,불 자료형만 사용이 가능하다.  
+```javascript
+//기본형태
+[
+    {
+        name: "고구마",
+        price:1000
+    },
+    {
+        name: "감자",
+        price:1000
+    },
+    {
+        name: "바나나",
+        price:1000
+    },
+];
+```
+|메소드|설명|
+|:---|:---|
+|JSON.stringify(<객체>,<변환 함수>,<공백 개수>)|자바스크립트 객체를 문자로 만듭니다.|
+|JSON.parse(<문자열>)|문자열을 자바스크립트 객체로 파싱|
 ## [5월 4일]
 
 ### 프로토타입
