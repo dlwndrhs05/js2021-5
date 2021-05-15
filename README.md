@@ -2,6 +2,46 @@
 
 ## [5월 11일]
 
+### Date 객체
+
+|생성자 함수|설명|
+|:---|:---|
+|new Date( )|현재 시간으로 Date 객체 생성|
+|new Date(<유닉스 타임>)|유닉스 타임(1970년01월01일 00시00분00초 부터 경과한 밀리초)으로 Date 객체 생성|
+|new Date(<시간 문자열>)|문자열로 Date 객체 생성|
+|new Date<년>,<월-1>,<일>,<시간>,<분>,<초>,<밀리초>|시간 요소(년,월-1,일,시간,분,초,밀리초)를 기반으로 Date 객체 생성|
+
+
+Month의 경우 0부터 시작하므로 주의
+```javascript
+//Date 객체 생성
+
+//현재시간을 기반으로 Date 객체 생성
+let foo = new Date();
+console.log(foo);
+
+//유닉스 타임 Date 객체
+let Unixtime = new Date(1600000000);
+console.log(Unixtime);
+
+//문자열로 객채생성
+let Stringtime = new Date("May 11 2021 29:00:00");
+console.log(Stringtime);
+
+//시간 요소
+let time = new Date(2021, 5-1,11,29,0,0);
+console.log(time);
+//우리나라는 표준시 기준으로 +09:00이기 때문에 시간을 계산할때 +9를 해준다.
+```
+
+#### Date객체의 메소드 활용
+
+Date 객체는 get OO( ) 형태의 메소드와 set OO( )형태의 메소드를 가진다.  
+OO에 들어갈 수 있는 문자는 FullYear,Month,Day,Hours,Minutes,Seconds
+
+추가로 들어가는것은 아래의 모질라 참고  
+**모질라 Date**  
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date
 
 ## [5월 4일]
 
