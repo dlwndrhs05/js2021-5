@@ -313,6 +313,92 @@ JSON.parse( ) 메소드 사용시 객체를 리턴
 
 ## 예외 처리
 ### 예외와 기본 예외 처리
+프로그램을 실행하는 동안 문제가 발생하면 프로그램이 자동으로 중단된다.  
+이렇게 발생한 오류를 예외라고 하며,이러한 오류에 대처할 수 있게 하는 것을 예외 처리라고 한다.
+```javascript
+//예외상황 확인
+//TypeError발생
+function callThreeTimes(callback){
+    for(let i =0; i <3; i++){
+        callback( );
+    }
+}
+//정상실행
+callThreeTimes(function ( ){console.log ('안녕하세요');});
+//예외 발생
+callThreeTimes( );
+```
+기본 예외 처리: 사전에 해당 데이터가 undefined인지 조건문으로 확인
+```javascript
+//기본 예외 처리
+//TypeError를 기본 예외 처리로 처리
+function callThreeTimes(callback){
+    if(callback){
+        for(let i =0; i <3; i++){
+            callback( );
+        }
+    } else {
+        console.log('매개 변수 callback이 지정되지 않았습니다.');
+    }
+}
+//정상실행
+callThreeTimes(function ( ){console.log ('안녕하세요');});
+//예외 발생
+callThreeTimes( );
+```
+
+### 고급 예외 처리
+고급 예외 처리는 try 키워드,catch 키워드,finally 키워드로 예외를 처리하는 방법이다.
+```javascript
+try{
+    //예외 발생시
+}catch (exception){
+    //처리
+}finally{
+    //무조건 실행
+}
+```
+catch 구문 또는 finally 구문이 필요가 없다면, 해당 부분을 생략하고 사용    
+
+배열을 생성할 때 길이를 음수로 지정하면 RangeError가 발생한다.
+```javascript
+try {
+    const array = new Array(-2000); //예외 처리 발생
+}catch(exception){
+    console.log(`$(exception.name)예외가 발생했습니다.`);
+}
+```
+### 예외 객체
+예외 발생시 어떤 예외가 발생했는지 정보를 전달하는 기능을 수행하는 객체
+```javascript
+try{
+    
+}catch(exception){
+
+}
+``` 
+```javascript
+//ReferenceError를 발생시킨 이후에 예외 객체의 nmae 속성과 message 속성 출력
+try{
+    error.error.error( );
+}cathc(e){
+    console.log(e.name);
+    console.log(e.message);
+}
+```
+### 예외 강제 발생
+throw 키워드는 예외를 강제로 발생시킨다  
+throw 키워드 뒤에는 문자열 또는 Error 객체를 입력
+```javascript
+//예외 객체 생성
+const error = new Error('메세지');
+error.name = '내 마음대로 오류';
+error.message = '오류의 메시지';
+
+//예외 발생
+throw error;
+```
+Error 객체를 사용하면 어떤 파일의 몇 번쨰 줄에서 예외가 발생했는지 확인이 가능하다.
 ## [5월 4일]
 
 ### 프로토타입
