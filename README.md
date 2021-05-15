@@ -268,23 +268,51 @@ JSON에는 몇 가지 제약이 있다
 //기본형태
 [
     {
-        name: "고구마",
-        price:1000
+        "name": "고구마",
+        "price":1000
     },
     {
-        name: "감자",
-        price:1000
+        "name": "감자",
+        "price":1000
     },
     {
-        name: "바나나",
-        price:1000
+        "name": "바나나",
+        "price":1000
     },
 ];
 ```
+JSON 객체
 |메소드|설명|
 |:---|:---|
 |JSON.stringify(<객체>,<변환 함수>,<공백 개수>)|자바스크립트 객체를 문자로 만듭니다.|
 |JSON.parse(<문자열>)|문자열을 자바스크립트 객체로 파싱|
+```javascript
+//JSON객체 활용
+//변수 선언
+const foo = [{
+    name: '이중곤',
+    region:'평택'
+},{
+    name: '이모씨',
+    region: '도쿄'
+}];
+//JSON.stringfy( )메소드로 자바스크립트 객체를 JSON 문자열로 변경
+const outputA= JSON.stringfy(foo);
+const outputB= JSON.stringfy(foo,null,2);
+console.log(tyoeif(outputA));
+console.log(outputA);
+console.log(outputB);
+
+//JSON.parse( )메소드로 JSON 문자열을 자바스크립트 객체로 변경
+const outputC = JSON.parse((outputB)
+console.log(typeof(outputC));
+console.log(outputC);
+```
+JSON.stringify( ) 메소드 사용시 문자열 리턴  
+JSON.parse( ) 메소드 사용시 객체를 리턴
+
+## 예외 처리
+### 예외와 기본 예외 처리
 ## [5월 4일]
 
 ### 프로토타입
