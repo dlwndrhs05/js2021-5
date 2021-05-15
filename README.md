@@ -43,6 +43,126 @@ OO에 들어갈 수 있는 문자는 FullYear,Month,Day,Hours,Minutes,Seconds
 **모질라 Date**  
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date
 
+```javascript
+//시간 더하기
+//현재시간을 기반으로 Date 객체 생성
+let foo = new Date( );
+console.log(foo);
+
+foo.setFullYear(foo.getFullYear( ) + 1);
+foo.setMonth(foo.getMonth( ) + 1);
+foo.setDate(foo.getDate( ) + 1);
+
+console.log(foo);
+```
+
+```javascript
+//시간 간격 구하기
+let foo = new Date( );
+console.log(foo);
+
+let intreval = now.getTime( ) - before.getTime( );
+interval = Math.floor(interval / (1000*60*60*24));
+
+console.log(intreval);
+```
+
+### Array 객체
+
+Array 객체의 기본 메소드  
+자기 자신을 변화시키는 파괴적 메소드로 자기 자신을 변경한다.
+|메소드|설명|
+|:---|:---|
+|concat( )|매개 변수로 입력한 배열의 요소를 모두 합쳐 배열을 만들어 리턴|
+|join( )|배열 안의 모든 요소를 문자열로 만들어 리턴|
+|PoP( )*|배열의 마지막 요소를 제거하고 리턴|
+|push( )*|배열의 마지막 부분에 새로운 요소를 추가|
+|reverse( )*|배열의 요소 순서를 뒤집음|
+|slice( )|배열 요소의 지정한 부분을 리턴|
+|sort()*|배열의 요소를 정렬|
+|splice( )*|배열 요소의 지정한 부분을 삭제하고 삭제한 요소를 리턴|
+
+```javascript
+//Array 객체의 메소드
+//배열 선언
+let foo = [
+    {
+        //key: value.
+        name: "고구마",
+        price:1000
+    },
+    {
+        name: "감자",
+        price:1000
+    },
+    {
+        name: "바나나",
+        price:1000
+    },
+];
+
+let popped = foo.pop( ); //배열에서 요소꺼내기
+console.log(popped); //꺼낸 요소 출력
+console.log(foo);//pop호출 후 배열호출
+console.log( ); 
+
+foo.push(popped);
+foo.push(               //배열에 요소 추가
+    {
+        name: "사과",
+        price:2000,
+    },
+    {
+        name:"수박",
+        price:3000,
+    }
+);
+console.log(foo); //push 호출 후 배열 호출
+```
+배열정렬은 라이브러리를 자주 이용한다.  
+```javascript
+let foo = ['고구마','감자','바나나'];
+let bar = [
+    {
+        //key: value.
+        name: "고구마",
+        price:1000
+    },
+    {
+        name: "감자",
+        price:1500
+    },
+    {
+        name: "바나나",
+        price:400
+    },
+];
+
+//기본 애열을 정렬 하고 출력
+foo.sort( );
+console.log(foo); //문자열정렬
+console.log(foo.reverse( ));//문자열로 역순정렬
+console.log( );
+
+//객체 내부의 숫자로 정렬하고 출력
+bar.sort((foo, bar) => {
+    return foo.price - bar.price;
+});
+console.log(bar);
+console.log( );
+
+// 객체 내부의 문자열로 정렬하고 출력
+bar.sort((foo, bar) => {
+    if (foo.name < bar.name){
+        return -1;
+    }else if (foo.name > bar.name){
+        return 1;
+    }else{
+        return 0;
+    }
+});
+console.log(bar);
+```
 ## [5월 4일]
 
 ### 프로토타입
