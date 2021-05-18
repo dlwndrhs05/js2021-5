@@ -4,7 +4,10 @@
             "name": "js2021-5",
             "path": "."
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.port": 5501
+    }
        
         
 }
