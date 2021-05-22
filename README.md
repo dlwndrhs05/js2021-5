@@ -26,6 +26,24 @@ process 객체의 메소드
 |exit([exitCode=0])|프로그램을 종료|
 |memoryUsage( )|메모리사용 정보 객체를 리턴|
 |uptime( )|현재 프로그램이 실행된 시간을 리턴|
+```javascript
+//process 객체의 속성과 메소드 사용
+console.log('-process.arch:',process.arch);
+console.log('-process.platform:',process.platform);
+console.log('-process.connected:',process.connected);
+console.log('-process.execArgv:',process.execArgv);
+console.log('-process.exeCode:',process.exeCode;
+console.log('-process.mainModule',process.Module);
+console.log('-process.release:',process.release);
+console.log('-process.memoryUsage( ):',process.memoryUsage( ));
+console.log('-process.uptime( ):',process.uptime( ));
+
+// 강제 종료
+process.exit( );
+
+//강제 종료시 이후 부분은 실행x
+console.log('테스트');
+```
 
 ### process 객체와 이벤트 개요
 Node.js의 이벤트 연결 메소드
@@ -38,7 +56,80 @@ process객체의 이벤트
 |:---|:---|
 |exit|프로세스가 종료될 때 발생|
 |uncaughtException|예외가 일어날 때 발생|
+```javascript
+//exit 이벤트 연결
+process.on('exit',( )=>{
+    console.log('프로세스 종료');
+});
+//uncaughtException 이벤트 연결
+process.on('uncaughtException',( ) =>{
+    console.log('예외 발생');
+});
+//예외 강제 발생
+error.error.error( );
+```
 
+### os모듈
+os모듈은 애플리케이션을 만들 때 많이 활용하지 않는다.
+```javascript
+//os모듈 추출
+const os = require('os');
+```
+os모듈 메소드
+|메소드|설명
+|:---|:---|
+|hostname( )|운영체제의 호스트 이름 리턴|
+|type( )|운영체제의 이름을 리턴|
+|platform( )|운영체제의 플랫폼 리턴|
+|arch( )|운영체제의 아키텍처 리턴|
+|release( )|운영체제의 버전 리턴|
+|uptime( )|운영체제의 실행된 시간을 리턴|
+|loadavg( )|로드 에버리지 정보를 담은 배열을 리턴|
+|totalmem( )|시스템의 총 메모리를 리턴|
+|freemem( )|시스템의 사용 가능한 메모리를 리턴|
+|cpus( )|cpu의 정보를 담은 객체 리턴|
+|getNetworkinterfaces( )|네트워크 인터페이스의 정보를 담은 배열리턴|
+```javascript
+//모듈 추출
+const os = require('os')
+
+//모듈을 사용
+console.log(os.hostname( ));
+console.log(os.type( ));
+console.log(os.platform( ));
+console.log(os.arch( ));
+console.log(os.release( ));
+console.log(os.uptime( ));
+console.log(os.loadavg( ));
+console.log(os.totalmem( ));
+console.log(os.freemem( ));
+console.log(os.cpus( ));
+console.log(os.networkInterfaces( ));
+```
+
+### url모듈
+```javascript
+//url 모듈 추출
+const url = require('url');
+```
+url 모듈 메소드
+|메소드|설명|
+|:---|:---|
+|parse(urlStr[parseQueryString = alse,slashesDenoteHost =false])|URL문자열을 URL 객체로 변환해 리턴|
+|format(urlObj)|URL객체를 URL 문자열로 변환해 리턴|
+|resolve(form,to)|매개 변수를 조합하여 완전한 URL 문자열을 생성해 리턴|
+```javascript
+//모듈 추출
+const url = require('url');
+//모듈 사용
+const parsedObject = url.parse('http://www.hanbit.co.kr/store/books/look.php?p_code=B4250257160');
+console.log(parsedObject);
+```
+### File System 모듈
+```javascript
+//모튤 추출
+const fs = require('fs');
+```
 
 ## [5월 11일]
 
