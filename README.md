@@ -126,6 +126,7 @@ const parsedObject = url.parse('http://www.hanbit.co.kr/store/books/look.php?p_c
 console.log(parsedObject);
 ```
 ### File System 모듈
+다른 모듈들과 다르게 모듈 이름을 약어로 사용함
 ```javascript
 //모튤 추출
 const fs = require('fs');
