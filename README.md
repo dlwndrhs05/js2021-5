@@ -218,6 +218,20 @@ fs.readFile('none.txt',(error,file)=>{
 });
 ```
 ### 노드 패키지 매니저
+npm 외부 모듈을 설치하는 용도로 사용(다른 용도로도 사용)
+```javascript
+//npm을 이용한 외부 모듈 설치
+>npm install <모듈 이름>
+//뒤에 @를 붙여 자기가 필요한 버전 설치
+>npm install <모듈이름>@<버전>
+```
+### request 모듈
+웹 요청을 쉽게 만들어 주는 모듈
+node.js가 기본적으로 제공하는 모듈이 아닌 다른 개인이 제공하는 외부모듈이다
+```javascript
+//request 모듈 설치
+>npm install request
+```
 ## [5월 11일]
 
 ### Date 객체
