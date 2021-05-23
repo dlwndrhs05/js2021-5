@@ -227,11 +227,51 @@ npm 외부 모듈을 설치하는 용도로 사용(다른 용도로도 사용)
 ```
 ### request 모듈
 웹 요청을 쉽게 만들어 주는 모듈
-node.js가 기본적으로 제공하는 모듈이 아닌 다른 개인이 제공하는 외부모듈이다
+node.js가 기본적으로 제공하는 모듈이 아닌 다른 개인이 제공하는 외부모듈이다  
+request 모듈 설명은 request 모듈의 github 페이지에서 확인 할수 있다.  
+설치한 request 모듈은 request( )함수로 사용
 ```javascript
 //request 모듈 설치
 >npm install request
 ```
+```javascript
+//모듈 추출
+const request = require('request');
+//request 모듈 사용
+const url = 'http://www.naver.com';
+request(url,(error,response,body)=>{
+    console.log(body);
+});
+```
+### cheerio 모듈
+request 모듈로 가져온 웹페이지는 html 문자열이다  
+여기에 원하는 정보를 추출해야 단순한 데이터가 정보가 되는데 이 과저을 파싱이라고 한다
+cheerio 모듈을 사용하면 가져온 웹페이지의 특정 위치에서 손쉽게 데이터를 추출할 수 있다.  
+이렇게 설치한 외부 모듈은 내부 모듈처럼 require( )함수로 사용  
+cheerio 모듈도 github 페이지에서 확인
+```javascript
+//cheerio 모듈 설치
+>npm install cherrio
+```
+```javascript
+//모듈 추출
+const request = require('request');
+const cheerio = require('cheerio');
+//request 모듈 사용
+const url = 'http://ncov.mohw.go.kr/';
+request(url,error,response,body) =>{
+    //cheerio 모듈 사용
+    const $=cheerio.load(body);
+    console.log($("suminfo.num").text());
+}
+```
+### async 모듈
+실행 순서를 정의하기 어렵고 들여 쓰기도 많은 node.js의 문제를 어느 정도 해결해 줄수 있는 모듈
+```javascript
+//모듈 추출
+const async = require('async');
+```
+
 ## [5월 11일]
 
 ### Date 객체
