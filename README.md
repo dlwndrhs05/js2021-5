@@ -126,12 +126,98 @@ const parsedObject = url.parse('http://www.hanbit.co.kr/store/books/look.php?p_c
 console.log(parsedObject);
 ```
 ### File System 모듈
-다른 모듈들과 다르게 모듈 이름을 약어로 사용함
+#### File Systme 모듈 파일읽기
+다른 모듈들과 다르게 모듈 이름을 약어로 사용함  
+동기와 비동기의 차이는 책 p.242 참조
 ```javascript
 //모튤 추출
 const fs = require('fs');
 ```
-
+파일 읽기 메소드
+|메소드|설명|
+|:---|:---|
+|fs.readFileSync(<파일 이름>)|동기적으로 파일을 읽음|
+|fs.readFile(<파일 이름>)<콜백 함수>|비 동기적으로 파일을 읽음|
+```javascript
+//동기식 파일 읽기
+//모듈 추출
+const fs = require('fs');
+//파일을 읽고 출력
+const file = fs readFilesync('textfile.text');
+console.log(file);
+console.log(file.toString);
+```
+```javascript
+//비동기식 파일 읽기
+//모듈 추출
+const fs = require('fs');
+//파일을 읽고 출력
+fs.readFil('textfile.text',(error,file) =>{
+    console.log(file);
+    console.log(file.toString);
+});
+```
+#### File System 파일 쓰기
+파일쓰기 메소드
+|메소드|설명|
+|:---|:---|
+|fs.writeFileSync(<파일이름>,<문자열>)|동기적으로 파일을 작성|
+|fs.writeFile(<파일이름>,<문자열>,<콜백함수>)|비동기적으로 파일을 작성|
+```javascript
+//동기적 파일 작성
+//모듈 추출
+consts fs = require('fs');
+//파일 작성
+fs.writeFileSync('output.txt','안녕하세요');
+console.log('파일작성완료');
+```
+```javascript
+//비동기적 파일 작성
+//모듈 추출
+consts fs = require('fs');
+//파일 작성
+fs.writeFile('output.txt','안녕하세요',(error)=>{;
+    console.log('파일작성완료');
+});
+```
+#### 파일 처리와 예외처리
+파일을 읽을 때 파일이 없거나 파일을 디렉터리에 쓰라고 햇을때 해당폴더가 없을때 예외 발생  
+파일 처리를 할 때는 반드시 예외 처리를 해야 한다.
+```javascript
+//동기적 예외 처리
+//모듈 추출
+consts fs = require('fs');
+//예외 처리
+try{
+    //파일을 읽고 출력
+    const file = fs.readFileSync('none.txt');
+    console.log(file);
+    console.log(file.toString( ));
+}catch (exception){
+    //예외 발생시
+    console.log('파일을 읽어 들이는데 문제 발생');
+    console.log(excption);
+}
+```
+```javascript
+//비동기적 예외 처리
+//모듈 추출
+consts fs = require('fs');
+//파일 읽기
+fs.readFile('none.txt',(error,file)=>{
+    //예외 처리
+    if(error){
+        //예외 발생시
+        console.log('파일을 읽어 들이는데 문제 발생');
+        console.log(excption);
+    }else{
+        //출력
+        console.log(file);
+        console.log(file.toString( ));
+    }
+});
+```
+### 노드 패키지 매니저
 ## [5월 11일]
 
 ### Date 객체
