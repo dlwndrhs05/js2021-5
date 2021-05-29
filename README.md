@@ -79,10 +79,11 @@ const app = express();
 app.get('*',(request,response) => {
     response.status(404);
     response.set({
+        //set('문자열','문자열')또는 set(객체)형태로 입력 할 수 있다.
         'methodB1':'FGHIJ',
         'methodB2':'KLMNO'
     });
-    response.send('내 마음대로 본문을 입력합니다.');
+    response.send('본문입력');
 });
  //서버실행
  app.listen(52273,() => {
