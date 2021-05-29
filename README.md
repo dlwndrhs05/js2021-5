@@ -1,5 +1,94 @@
 # 이중곤 [201930323]
 
+## [5월 25일]
+
+### express 모듈
+```javascript
+//express 모듈 설치
+$ npm install express@4
+```
+### express 모듈을 사용한 서버 생성과 실행
+express 모듈의 기본 메소드
+|메소드|설명|
+|:---|:---|
+|express()|서버애플리케이션 객체 생성|
+|app.use()|요청이 왔을떄 실행할 함수를 지정|
+|app.listen()|서버 실행|
+
+```javascript
+//express 모듈을 사용한 서버 생성과 실행
+//모듈 추출
+const express = require('express');
+
+//서버 실행
+const app = express();
+
+//request 이벤트 리스너 설정
+app.use((request,response) =>{
+    console.log('Serve running at http://127.0.0.1:52273');
+})
+```
+### 이벤트 라우팅
+express 모듈은 페이지 라우팅을 지원한다  
+페이지 라우팅이란 클라이언트 요청에 적절한 페이지를 제공하는 기술 이다.  
+express 모듈의 페이지 라우팅 메소드
+|메소드|설명|
+|get(path,callback)|GET 요청이 발생시 이벤트 리스너를 지정|
+|post(path,callback)|POST 요청이 발생시 이벤트 리스너 지정|
+|put(path,callback)|PUT 요청이 발생했을 떄 이벤트 리스너를 지정|
+|delete(path,callback)|DELETE 요청이 발생했을 때 이벤트 리스너를 지정|
+|all(path,callback)|모든 요청이 발생했을 때 이벤트 리스너 지정|
+```javascript
+//get 메소드를 이용한 페이지 라우팅
+
+//모듈 추출
+const express = require('express');
+
+//서버 생성
+const app = express();
+
+//request 이벤트 리스너를 설정
+app.get('/page/:id',(request.response) => {
+    //토큰을 꺼냄
+    const id = request.params.id;
+    
+    //응답
+    response.send('<h1>${id}Page</h1>');
+})
+    //서버를 실행
+    app.listen(52273, () => {
+        console.log('Server running at http://127.0.0.1:52273');
+    });
+```
+### response 객체
+|메소드|설명|
+|:---|:---|
+|send()|데이터 본문을 제공|
+|status()|상태 코드를 제공|
+|set()|헤더를 설정|
+
+```javascript
+//response 객체의 기본 메소드
+//모듈 추출
+const express = require('express');
+
+//서버를 생성
+const app = express();
+
+// request 이벤트 리스너를 설정
+app.get('*',(request,response) => {
+    response.status(404);
+    response.set({
+        'methodB1':'FGHIJ',
+        'methodB2':'KLMNO'
+    });
+    response.send('내 마음대로 본문을 입력합니다.');
+});
+ //서버실행
+ app.listen(52273,() => {
+     console.log('Server running at http://127.0.0.1:52273');
+ });
+```
 ## [5월 18일]
 
 ## Node.js
