@@ -174,6 +174,45 @@ app.listen(52273,() => {
      console.log('Server running at http://127.0.0.1:52273');
  });
 ```
+### 리다이렉트
+상태 코드 3XX 리다이렉트는 굉장히 특수한 상태 코드이다  
+웹브라우저가 리다이렉트를 확인하면 화면을 출력하지 않고, 응답 헤더에 있는 Location 속성을 확인해서
+해당 위치로 이동한다.
+
+특정경로로 웹 브라우저를 인도할 때 사용하는 것이 리다이렉트이다.
+|메소드|설명|
+|:---|:---|
+|redirect( )|리다이렉트를 실행|
+```javascript
+//redirect( )메소드를 사용해 이동
+//모듈 추출
+const express = require('express');
+
+//서버를 생성
+const app = express();
+
+//request 이벤트 리스너 설정
+app.get('*',(request,response) => {
+    response.redirect('http://naver.com');
+});
+
+//서버 실행
+app.listen(52273,() => {
+     console.log('Server running at http://127.0.0.1:52273');
+ });
+ ```
+
+ ### 요청 매개 변수
+ |분류|값|설명|
+ |:---|:---|:---|
+ |프로토콜|HTTPS|통신에 사용되는 규칙|
+ |호스트|(search.)naver.com|애플리케이션 서버(또는 분산 장치 등)의 위치를 의미|
+ |URL|search.naver|애플리케이션 서버 내부에서 라우트 위치를 나타냄|
+ |요청 매개 변수|?where=nexearch|추가적인 정보를 의미|
+ ||&query=초콜릿||
+ ||&sm=top_hty||
+ ||&fbm=0||
+ ||&ie=utf8||
 ## [5월 18일]
 
 ## Node.js
