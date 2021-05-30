@@ -33,6 +33,7 @@ express 모듈은 페이지 라우팅을 지원한다
 페이지 라우팅이란 클라이언트 요청에 적절한 페이지를 제공하는 기술 이다.  
 express 모듈의 페이지 라우팅 메소드
 |메소드|설명|
+|:---|:---|
 |get(path,callback)|GET 요청이 발생시 이벤트 리스너를 지정|
 |post(path,callback)|POST 요청이 발생시 이벤트 리스너 지정|
 |put(path,callback)|PUT 요청이 발생했을 떄 이벤트 리스너를 지정|
