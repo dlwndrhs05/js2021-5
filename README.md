@@ -104,6 +104,41 @@ MIME 형식
 |video/mpeg|MPEG 비디오파일을 의미|
 |application/json|json파일을 의미|
 |multipart/form-data|입력 양식 데이터를 의미|
+콘텐츠 타입지정 메소드
+|메소드|설명|
+|:---|:---|
+|type( )|Content-Type을 MIME형식으로지정|
+```javascript
+//type 속성
+//모듈추출
+const express =require('express');
+const fs = require('fs');
+
+//서버생성
+const app = express();
+
+// request 이벤트 리스너 설정
+app.get('/image',(request,response) => {
+    fs.readFile('image.png',(error,data) => {
+        //이미지 파일 제공
+        respone.type('image/png');
+        respone.send(data);
+    });
+});
+
+app.get('/audio',(request,response) => {
+    fs.readFile('audio.mp3',(error,data) => {
+        //오디오 파일 제공
+        respone.type('audio/mpeg');
+        respone.send(data);
+    });
+});
+
+//서버 실행
+app.listen(52273,() => {
+     console.log('Server running at http://127.0.0.1:52273');
+ });
+```
 
 ## [5월 18일]
 
