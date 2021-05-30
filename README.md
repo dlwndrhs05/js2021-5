@@ -159,7 +159,7 @@ process 객체의 속성
 |version|Node.js 버전을 나타낸다|
 |versions|Node.js와 종속된 프로그램 버전을 나타냅니다.|
 |arch|프로세서의 아키텍처를 나타냅니다.|
-|platform|플랫폼을 나타냅니다.|
+|platform|플랫폼을 나타냅니다.|  
 
 
 process 객체의 메소드
