@@ -103,7 +103,9 @@ MIME 형식
 |audio/mpe|MP3 음악파일을 의미|
 |video/mpeg|MPEG 비디오파일을 의미|
 |application/json|json파일을 의미|
-|multipart/form-data|입력 양식 데이터를 의미|
+|multipart/form-data|입력 양식 데이터를 의미|  
+
+
 콘텐츠 타입지정 메소드
 |메소드|설명|
 |:---|:---|
