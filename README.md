@@ -90,6 +90,20 @@ app.get('*',(request,response) => {
      console.log('Server running at http://127.0.0.1:52273');
  });
 ```
+### Content-Type
+서버가 데이터를 제공할 때 Content-Type 속성을 헤더에 적어 제공하면 웹브라우저는  
+헤더를 확인하고 제공된 데이터의 형식을 구분한다.
+MIME 형식
+|MIME 형식|설명|
+|:---|:---|
+|text/plain|기본적인 텍슥트 의미|
+|text/html|html 데이터를 의미|
+|image/png|png 데이터를 으믜|
+|audio/mpe|MP3 음악파일을 의미|
+|video/mpeg|MPEG 비디오파일을 의미|
+|application/json|json파일을 의미|
+|multipart/form-data|입력 양식 데이터를 의미|
+
 ## [5월 18일]
 
 ## Node.js
