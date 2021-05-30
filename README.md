@@ -213,6 +213,32 @@ app.listen(52273,() => {
  ||&sm=top_hty||
  ||&fbm=0||
  ||&ie=utf8||
+
+ ```javascript
+ //요청 매개변수 추출
+ //모듈 추출
+const express = require('express');
+
+//서버를 생성
+const app = express();
+
+//request 이벤트 리스너 설정
+app.get('*',(request,response) => {
+    console.log(request.query);
+    response.send(request.query);
+});
+
+//서버 실행
+app.listen(52273,() => {
+     console.log('Server running at http://127.0.0.1:52273');
+ });
+ ```
+
+ ### 미들웨어
+ 미들웨어 설정 메소드
+ |메소드|설명|
+ |:---|:---|
+ |use()|미들웨어를 설정|
 ## [5월 18일]
 
 ## Node.js
