@@ -269,6 +269,46 @@ app.listen(52273,() => {
  ```javascript
  >npm install morgan
  ```
+ ```javascript
+ //morgan 미들웨어
+ //모듈 추출
+ const express = require('express');
+ const morgan = require('morgan');
+ 
+ //서버를 생성
+ const app = express();
+ app.use(express.static('public'));
+ app.use(morgan('combined'));
+
+ //request 이벤트 리스너 설정
+ app.get('*',(request,response) => {
+     response.send('명령 프롬프트를 확인');
+ });
+
+ //서버 실행
+ app.listen(52273, () => ){
+     console.log('Server running at http://127.0.01:52273');
+ });
+ ```
+ ### body-parser 미들웨어
+ body-parser 미들웨어는 요청 본문을 해석해준다  
+ 요청본문  
+ 서버가 클라이언트로 데이터를 전달할 때 응답 본문과 응답 본문의 종류를 함께 전달했던 것 처럼  
+ 클라이언트도 서버로 본문을 전달할 때 요청 본문의 종류를 함께 전달해야한다.  
+ 서버에서 클라이언트로 데이터를 전달할 때는 서버에서 대충 보내면 잘 만든 웹 브라우저가 알아서 Content-type을 분석해 본문을 출력하지만  
+ 클라이언트에서 서버로 데이터를 전달한 이후의 모든 처리는 서버를 개발하는 개발자가 처리해야 한다  
+ 클라이언트가 어떤 Encoding-Type으로 요청 했는지 확인하고, 변환해서 읽어야 한다. Encoding-Type 에 따라서 변환을 해야하는데   
+ 이것을 쉽게 해주는 미들웨어가 body-parser이다.
+ 요청 본문의 종류
+ |MIME 형식|종류|
+ |:---|:---|
+ |application/x-www-form-urlencoded|웹 브라우저에서 입력양식을 POST,PUT,DELETE 방식 등으로 전달 할 때 사용하는 기본적인 요청 형식|
+ |application/json|JSON 데이터로 요청하는 방식|
+ |multipart/form_data|대용량 파일 전송 요청 방식|
+ ```javascript
+ //자바스크립트 설치
+ >npm install body-parser
+ ```
 ## [5월 18일]
 
 ## Node.js
