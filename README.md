@@ -61,6 +61,116 @@ for (var item in array){
     console.log(array[i]);
 }
 ```
+#### 사용할 수 없는 메소드를 사용한 코드
+ECMAScript5에서 추가된 메소드는 사용할 수 없다  
+Array 객체의 forEach( ) 메소드,map( ) 메소드,filter( )메소드 등은 활용할 수없다.
+```javascript
+//최신버전 자바스크립트 코드
+const array = [1,2,3,4,5];
+
+array.forEach((item,index) => {
+    console.log('${item}: ${index}');
+});
+//인터넷 익스플로러에서 사용해야 하는 코드
+var array = [1,2,3,4,5];
+
+for(var i = 0; i < array.length; i++){
+    var index = i;
+    var item = array[i];
+    console.log(item + ':'+ index);
+}
+```
+### 브라우저 객체 모델
+웹 브라우저와 관련된 객체를 브라우저 객체 모델 이라고 한다.
+### window 객체
+window 객체는 웹페이지 자체를 나타낸다.  
+window 객체를 사용하면 새로운 화면을 열거나 웹 브라우저의 크기를 변경하는 등의 일이 가능하다.
+|함수|설명|
+|:---|:---|
+|alert(<메시지>)|경고창을 출력합니다.|
+|prompt(<메시지>),<임시글자>)|프롬프트를 출력|
+
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //입력
+        var input = prompt('글자를 입력해주세요','여기에 입력해주세요');
+        //출력
+        alert(input);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+```
+### screen 객체
+screen 객체는 웹 브라우저 화면이 아니라 운영체제 화면의 속성을 가진다  
+screen 객체의 속성
+|속성|설명|
+|:---|:---|
+|width|화면의 너비|
+|height|화면의 높이|
+|availWidth|실제 화면에서 사용 가능한 너비|
+|availHeight|실제 화면에서 사용 가능한 높이|
+|colorDepth|사용 가능한 색상 수|
+|pixelDepth|한 픽셀당 비트 수|
+### loaction 객체와 history 객체
+location 객체는 웹 브라우저의 주소창과 관련된다.  
+location 객체는 프로토콜의 종류,호스트,이름,문서 위치 등 정보가 있다.  
+location 객체의 속상과 메소드도 웹 브라우저 마다 다르다.  
+아래의 표는 모든 웹 브라우저에서 공통으로 사용 가능한 속성이다.
+|속성|설명|예|
+|:---|:---|:---|
+|href|문서의 URL주소||
+|host|호스트 이름과 포트 번호|localhost:522703|
+|hostname|호스트 이름|localhost|
+|port|포트 번호|52273|
+|pathname|디렉터리 경로|/folder/HTMLPage.html|
+|hash|앵커 이름(#~)|#test|
+|search|요청 매개 변수|?param=10|
+|protocol|프로토콜 종류|http:|
+location 객체의 메소드
+|메소드|설명|
+|:---|:---|
+|assign(<링크>)|매개 변수로 전달한 위치로 이동|
+|reload()|새로고침|
+|replace()|매개 변수로 전달한 위치로 이동(뒤로가기불가)|
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       //loaction 객체를 사용한 페이지 이동
+       setInterval(function (){
+           location = 'http://hanbit.co.kr';
+       }, 3000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+```
+### navigator 객체
+navigator 객체에는 웹 페이지를 실행하는 웹 브라우저 정보가 들어있다.
+|속성|설명|
+|:---|:---|
+|appCodeName|웹 브라우저의 코드 이름|
+|appName|웹 브라우저의 이름|
+|appVersion|웹 브라우저의 버전|
+|platform|사용 중인 운영체제의 시스템 환경|
+|userAgent|웹 브라우저의 전체적인 정보|
 ## [5월 25일]
 
 ### express 모듈
