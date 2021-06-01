@@ -11,34 +11,56 @@
 #### let 키워드와 const 키워드
 let 키워드와 const 키워드는 ECMAScript6에서 추가된 기능이다  
 구 버전의 웹 브라우저에서는 var 키워드를 사용해 변수를 만들어야 한다.
-|최신 버전 자바스크립트 코드|인터넷 익스플로러에서 사용해야 하는 코드|
-|:---|:---|
-|let variable = 273;|var variableA = 273;|
-|const constant = "Hello World";|var variable = "Hello World";|
+```javascript
+//최신 버전 자바스크립트 코드
+
+let variable = 273;
+const constant = "Hello World";
+
+//인터넷 익스플로러에서 사용해야 하는 코드
+var variableA = 273;
+var variable = "Hello World";
+```
 
 #### 템플릿 문자열
 템플릿 문자열 또한 ECMAScript6에서 추가된 기능으로써 문자열 연결연산자를 사용해야 한다.
-|최신 버전 자바스크립트 코드|인터넷 익스플로러에서 사용해야 하는 코드|
-|:---|:---|
-|let variable = 273;|var variable =273;|  
-console.log('변수의 값은 ${variable}입니다.');|console.log('변수의 값은 ' + variable + '입니다.');|
+```javascript
+//최신 버전 자바스크립트 코드
+let variable = 273;
+console.log('변수의 값은 ${variable}입니다.');
+
+//인터넷 익스플로러에서 사용해야 하는 코드
+var variable =273;
+console.log('변수의 값은 ' + variable + '입니다.');
+```
 
 #### 화살표 함수
 화살표 함수 또한 ECMAScript6에서 추가된 기능이다.  
 구 버전의 웹 브라우저에서는 함수를 만들 때는 반드시 function 키워드를 사용해야 한다.
-|최신 버전 자바스크립트 코드|인터넷 익스플로러에서 사용해야 하는 코드|
-|:---|:---|
-|const functionLiteral = () =>{};|const functionLiteral = function (){};|
+```javascript
+//최신 버전 자바스크립트 코드
+const functionLiteral = () =>{};
 
+//인터넷 익스플로러에서 사용해야 하는 코드
+const functionLiteral = function (){};
+```
 #### for of 반복문
 for of 반복문 또한 ECMAScript6 에서 추가된 기능이다.  
 구 버전의 웹 브라우저에서는 for in 반복문을 사용해 대체해야 한다.
-|최신 버전 자바스크립트 코드|인터넷 익스플로러에서 사용해야 하는 코드|
-|:---|:---|
-|const array = ['가','나','다'];|var array = ['가','나','다'];|
-|for (let item of array){
+```javascript
+//최신 버전 자바스크립트 코드
+const array = ['가','나','다'];
+for (let item of array){
     console.log(item);
-}|
+}
+
+//인터넷 익스플로러에서 사용해야 하는 코드
+var array = ['가','나','다'];
+
+for (var item in array){
+    console.log(array[i]);
+}
+```
 ## [5월 25일]
 
 ### express 모듈
