@@ -38,7 +38,7 @@ for of 반복문 또한 ECMAScript6 에서 추가된 기능이다.
 |const array = ['가','나','다'];|var array = ['가','나','다'];|
 |for (let item of array){
     console.log(item);
-}
+}|
 ## [5월 25일]
 
 ### express 모듈
