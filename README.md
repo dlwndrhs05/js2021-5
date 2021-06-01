@@ -20,9 +20,8 @@ let 키워드와 const 키워드는 ECMAScript6에서 추가된 기능이다
 템플릿 문자열 또한 ECMAScript6에서 추가된 기능으로써 문자열 연결연산자를 사용해야 한다.
 |최신 버전 자바스크립트 코드|인터넷 익스플로러에서 사용해야 하는 코드|
 |:---|:---|
-|let variable = 273;  
-console.log('변수의 값은 ${variable}입니다.');|var variable =273;  
-console.log('변수의 값은 ' + variable + '입니다.');|
+|let variable = 273;|var variable =273;|  
+console.log('변수의 값은 ${variable}입니다.');|console.log('변수의 값은 ' + variable + '입니다.');|
 ## [5월 25일]
 
 ### express 모듈
