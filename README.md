@@ -171,6 +171,52 @@ navigator 객체에는 웹 페이지를 실행하는 웹 브라우저 정보가 
 |appVersion|웹 브라우저의 버전|
 |platform|사용 중인 운영체제의 시스템 환경|
 |userAgent|웹 브라우저의 전체적인 정보|
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      // 데스크톱 웹 브라우저와 스마트폰 웹 브라우저 구분
+      // navigator 객체의 속성을 출력
+      var output = '';
+      output += 'appCodeName:' + navigator.appCodeName + '\n';
+      output += 'appName:' + navigator.appName + '\n';
+      output += 'appVersion:' + navigator.appVersion + '\n';
+      output += 'platform:' + navigator.platform + '\n';
+      output += 'userAgent' + navigator.userAgent;
+      alert(output);
+
+      // ios와 안드로이드 웹 브라우저 구분
+      if(navigator.userAgent.toLowerCase().indexOf('iphone') >= 0||
+         navigator.userAgent.toLowerCase().indexOf('ipad') >= 0||
+         navigator.userAgent.toLowerCase().indexOf('ipod') >= 0||
+         navigator.userAgent.toLowerCase().indexOf('android') >= 0){
+             alert('모바일 웹 브라우저');
+         }else{
+             alert('데스크톱 웹 브라우저')
+         }
+    
+      </script>
+</head>
+<body>
+    
+</body>
+</html>
+```
+### 문서 객체 모델
+
+### 문서 객체 모델 관련 용어
+웹 브라우저에 HTML 파일을 끌어다 놓으면 HTML 파일을 분석해 화면에 출력한다.  
+이 때 웹 브라우저가 HTML 파일을 분석하고 출력하는 방식을 문서 객체 모델 이라고 한다.  
+HTML에서 각 요소를 노드라고 하며 요소 노드와 텍스트 노드로 구분이 된다.  
+h1태그와 script 태그처럼 요소를 생성하는 노드를 요소 노드라고한다.  
+반면 화면에 출력되는 문자열은 텍스트 노드라고 한다.  
+웹페이지를 처음 실행할 때 HTML 페이지에 있는 태그를 읽으면서 생성하면 '정서적으로 문서 객체를 생성했다'
+자바스크립트를 통해 실행하면 '동적으로 문서 객체를 생성'
 ## [5월 25일]
 
 ### express 모듈
