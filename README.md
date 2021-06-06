@@ -290,7 +290,150 @@ lt는 less than,gt는 gtrater than을 나타낸다.
 image.src = 'rint.png'
 alert(image.src)
 ```
+### 이벤트
+이벤트는 키보드로 키를 입력하거나 마우스 클릭 등 어떤 현상이 프로그램에 영향을 미치게 하는 것을 의미   
+이벤트는 사용자가 직접 발생시킬수도 있고, 애플리케이션이 자체적으로 발생시킬 수도 있다.
 
+```javascript
+window.onload = function () {};
+```
+코드에서 onload를 이벤트 속성이라고 한다. 여기에서 on을 제외한 load는 이벤트 이름 또는 이벤트 타입이라고 한다.  
+이벤트 속성에 넣는 함수는 이벤트 리스너 또는 이벤트 핸들러 라고 한다.  
+문서 객체에 이벤트를 연결하는 방법은 이벤트 모델이라고 한다.
+
+
+DOM Level0: 인라인 이벤트 모델,고전 이벤트 모델  
+DOM Level2: 마이크로소프트 인터넷 익스플로러 이벤트 모델,표준 이벤트 모델
+
+
+DOM Level0 은 이벤트 연결 방식이 쉽지만 중복해서 이벤트 적용이 되지 않음  
+DOM Level2 은 중복해서 이벤트 연결할 수 있지만, 웹 브라우저 종류에 따라 연결하는 방법이 다르다
+
+### 인라인 이벤트 모델
+인라인 코드 내부에서 세미콜론을 사용해 문장을 구분하면 여러 줄의 코드를 입력할수 있으나  
+HTML페이지가 지저분해지므로 script 태그 내부에 함수를 선언하고 인라인 이벤트 속성 내부에서  
+해당 함수를 싱행하는 형태를 취하는 것이 좋다.
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="alert('click')">버튼</button>
+</body>
+</html>
+```
+### 고전 이벤트 모델
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //이벤트 연결
+        window.onload = function (){
+            //문서 객체를 선택
+            var button = document.getElementById('button');
+            //이벤트 연결
+            button.onclick = function (){
+                alert('click');
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="button">버튼</button>
+</body>
+</html>
+```
+
+### 이벤트 객체
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      //인터넷 익스플로러 이벤트 객체
+      window.onload = function (){
+          alert(window.event);
+      }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
+```
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      //표준 이벤트 객체
+      window.onload = function (event){
+          alert(event);
+      }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
+```
+### 기본 이벤트 제거
+HTML태그에는 기본 이벤트 가 있다  
+a 태그처럼 클릭시 href 속성에 입력한 위치로 이동하고 form태그 내부에서 <제출>버튼을 누르면 자동으로 입력 양식을 제출한다.  
+이것을 기본 이벤트 라고 한다.  
+웹 페이지에서는 가끔 이 기본 이벤트를 막아야 할 때가 있다.  
+사용자가 다르게 입력 했을 경우 다음 웹 페이지로 이동하면 안되고 이러한 상황에서는  
+HTML 태그가 가지는 기본이벤트를 제거 해야 한다.
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      //기본이벤트 제거
+      //이벤트 연결
+      window.onload = function (){
+            //문서객체 생성
+            var button = document.getElementById('button');
+            //이벤트 연결
+            button.onclick = function (){
+                //기본 이벤트 제거
+                return false;
+            }
+      }
+    </script>
+</head>
+<body>
+   <a href="https://naver.com" id="button">버튼</a>
+</body>
+</html>
+```
+### jQuery
+jQuery 사용에는 2가지 방식이 있다.
+첫번째 방식은 특정폴더에 파일을 다운로드해 HTML 코드로 가져오는 것이고  
+두번째 방식은 CDN을 활용하여 scruot 태그 내에 CDN 경로를 넣어서 사용하는 것이다.
+### j
 ## [5월 25일]
 
 ### express 모듈
