@@ -640,6 +640,64 @@ $(<선택자>).on(<이벤트 이름>,<콜백 함수>)
 |resize()|웹 브라우저의 크기를 변경 할 때|
 |scroll()|웹 브라우저를 스크롤 할 때|
 
+### 이벤트 간접 연결
+
+부모에게 이벤트를 위임해서 부모가 이벤트를 처리하게 하는것  
+h1태그에 이벤트를 연결하는 것이 아니라 h1태그의 부모인 body 태그에 이벤트를 연결하여  
+body 태그 내부에서 h1태그를 클릭했을 때를 구현
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title>Document</title>
+    <script>
+        //웹페이지를 불러오면
+        $(document).ready(function(){
+            $('body').on('click','h1',function(event){
+                $('<h1></h1>').text($(this).text()).appendTo('body');
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>header</h1>
+</body>
+</html>
+```
+### 이벤트 제거
+이벤트를 제거할 때는 off() 메소드를 사용한다.
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title>Document</title>
+    <script>
+        //웹페이지를 불러오면
+        $(document).ready(function(){
+            var handler = function(event){
+                $('<h1></h1>')
+                    .text($(this).text())
+                    .click(handler)
+                    .appendTo('body');
+                $(this).off();
+            }
+            $('h1').on('click',handler);
+        })
+    </script>
+</head>
+<body>
+    <h1>header</h1>
+</body>
+</html>
+```
 ## [5월 25일]
 
 ### express 모듈
