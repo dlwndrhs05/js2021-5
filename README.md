@@ -217,6 +217,29 @@ h1태그와 script 태그처럼 요소를 생성하는 노드를 요소 노드�
 반면 화면에 출력되는 문자열은 텍스트 노드라고 한다.  
 웹페이지를 처음 실행할 때 HTML 페이지에 있는 태그를 읽으면서 생성하면 '정서적으로 문서 객체를 생성했다'
 자바스크립트를 통해 실행하면 '동적으로 문서 객체를 생성'
+
+### 웨 페이지 생성순서 
+HTML은 코드를 위에서 아래로 실행한다.
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    alert('Process - 0')
+    </script>
+</head>
+<body>
+    <h1>Process - 1</h1>
+    <script>alert('Process - 2')</script>
+    <h2>Process - 2</h2>
+    <script>alert('Process - 3')</script>
+</body>
+</html>
+```
 ## [5월 25일]
 
 ### express 모듈
