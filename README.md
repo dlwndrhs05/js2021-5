@@ -249,6 +249,47 @@ HTML은 코드를 위에서 아래로 실행한다.
 |:---|:---|
 |document.getElementByid(아이디)|아이디를 사용해 문서 객체를 선택|
 |document.querySelector(선택자)|선택자를 사용해 문서 객체를 선택|
+여러개의 문서 객체를 선택하는 메소드
+|메소드|설명|
+|:---|:---|
+|document.getElementsByName(이름)|name속성으로 여러 개의 문서 객체를 선택|
+|document.getElementsByClassName(클래스)|class 속성으로 여러 개의 문서 객체를 선택|
+|document.querySelectorAll(선택자)|선택자로 여러 개의 문서 객체를 선택합니다.|
+
+### 문서 객체 조작
+태그 형식의 문자열을 넣을 때는 <>를 이스케이프 문자인 &lt; 와 &gt;로 입력해야한다.  
+lt는 less than,gt는 gtrater than을 나타낸다.
+
+
+글자를 조작하는 속성
+|속성|설명|
+|:---|:---|
+|innerHTML|문서 객체 내부의 글자를 나타냄|
+
+### 스타일 조작
+문서 객체의 스타일을 조작할 때는 style 속성을 사용한다. style 속성에는 css로 선택할 수 있느 모든 스타일 속성이 들어 있다.  
+
+
+스타일 시트의 스타일 속성과 자바스크립트의 스타일 속성 차이
+|스타일 시트의 스타일 속성|자바스크립트의 스타일 속성|
+|background-color|backgroundColor|
+|border-radius|borderRadius|
+|border-bottom|borderBottom|
+
+### 속성 조작
+속성 조작은 웹표준에서 지정하지 않는 속성을 지정할 때 사용한다.  
+문서 객체의 속성 조작 메소드
+|메소드|설명|
+|:---|:---|
+|setAttribute(속성 이름,속성 값)|속성을 지정|
+|getAttribute(속성 이름)|속성을 추출|
+
+
+웹 표준에서 지정한 속성접근 (웹표준에선 지원하지만 웹 브라우저 제조사가 구현하지 못하면 접근하지 않을 수 있음)
+```javascript
+image.src = 'rint.png'
+alert(image.src)
+```
 
 ## [5월 25일]
 
