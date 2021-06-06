@@ -433,7 +433,177 @@ HTML 태그가 가지는 기본이벤트를 제거 해야 한다.
 jQuery 사용에는 2가지 방식이 있다.
 첫번째 방식은 특정폴더에 파일을 다운로드해 HTML 코드로 가져오는 것이고  
 두번째 방식은 CDN을 활용하여 scruot 태그 내에 CDN 경로를 넣어서 사용하는 것이다.
-### j
+### jQuery 객체
+$(<매개변수>).메소드(<매개 변수>,<매개 변수>)  
+css 선택자를 사용하면'기존의 문서 객체 선택'  
+HTML 문자열을 사용하면 '새로운 문서 객체 생성'  
+문서 객체를 사용하면 '기존의 문서 객체 선택'과 '새로운 문서 객체 생성'을 모두 가능  
+jQuery 객체 생성  
+```javascript
+//일반 문서 객체로 jQuery객체 생성
+$(document)
+//css선택자로 jQuery 객체 생성
+$('h1')
+//HTML 문자열로 jQuery 객체 생성
+$('<h1></h1>')
+```
+
+### 문서 객체 선택
+
+|메소드|설명|
+|:---|:---|
+|parent()|부모 태그를 선택|
+|find()|후손 태그를 찾는다|
+
+
+h1태그가 여러 개 선택된 상태로 parent() 메소드와 find() 메소드를 사용하면,첫 번째 h1 태그를 기준으로 부모와 후손을 찾는다.
+
+### 문서 객체 개별 조작
+$()함수를 사용하면 여러 개의 문서 객체를 선택할 수 있다.  
+이러한 문서 객체가 몇 개 선택 되 었는지 확인할 때는 lenght 속성을 사용한다.
+|속성|설명|
+|:---|:---|
+|length|선택한 문서 객체의 수를 구함|
+
+
+배열처럼 대괄호를 사용해서 요소 하나를 꺼낼 수도 있고, get()메소드를 사용해서 꺼낼 수도 있다.  
+get( ) 메소드를 사용해 추출한 요소는 jQuery 문서 객체가 아니라 일반 문서 객체이므로 주의
+|메소드|설명|
+|:---|:---|
+|get()|선택한 문서 객체 중 하나를 선택|
+
+
+선택된 문서 객체 반복 적용
+|메소드|설명|
+|:---|:---|
+|each()|선택한 문서 객체에 반복을 적용|
+each() 메소드를 사용 할 때 주의할 점은 ECMAScript5에서 제공하는 Array 객체의 forEach()메소드와 인덱스, 요소 순서가 다르다  
+each() 메소드의 콜백 함수 내부에서 this는 문서 객체를 나타냄
+each() 메소드의 콜백 함수
+|Array 객체의 for Each() 메소드|jQuery의 each()메소드|
+|:---|:---|
+|[].forEach(function(item.index){});|$('h1').each(function(index,item){});|
+
+### 문서 객체 조작
+
+문서 객체의 문자 조작 메소드
+|메소드|설명|
+|:---|:---|
+|text()|html 태그 내부의 문자를 조작|
+|html()|html 태그 내부의 문자를 조작(HTML태그 인식)|
+```javascript
+//h1 태그 내부의 문자를 가져옴
+$('h1').text()
+//h1 태그 내부의 문자를 가져옴
+$('h1').html()
+```
+선택자로 여러 개의 문서 객체를 선택할 때 text() 메소드는 모든 문서 객체 내부의 문자를 출력하고,html()메소드는 첫 번째 문서 객체 내부의 문자를 출력
+```HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            //text()메소드와 HTML()메소드의 리턴값을 출력
+            alert($('p').text()); //모든 p태그 내부의 문자를 출력
+            alert($('p').html()); // 첫 번째로 선택된 p 태그의 문자를 출력
+        })
+    </script>
+</head>
+<body>
+    <p>TestA</p>
+    <p>TestB</p>
+    <p>TestC</p>
+</body>
+</html>
+```
+### 스타일 조작
+|메소드|설명|
+|:---|:---|
+|case()|스타일을 조작|
+스타일도 GET형태와 SET 형태를 나누어 사용 GET 형태는 선택자로 선택된 문서 객체 중 첫 번째 문서 객체의 스타일을 가져옴
+```javascript
+//h1 태그의 color 스타일 속성을 가져옴
+$('h1').css('color')
+
+//h1 태그의 color 스타일 속성을 red로 설정
+$('h1').css('color','red')
+
+//h1 태그의 color 스타일 속성과 backgroundColor 스타일 속성을 한꺼번에 설정
+$('h1').css({
+    color:'red',
+    backgroundColor:'orange'
+})
+```
+
+### 속성 조작
+|메소드|설명|
+|:---|:---|
+|attr()|속성을 조작|
+속성도 GET형태와 SET형태로 나누어 사용 GET형태는 선택자로 선택된 문서 객체 중 첫 번째 문서 객체의 속성을 가져옴
+```javascript
+//image 태그의 src 속성을 가져옴
+$('img').attr('src')
+
+//image 태그의 src 속성을 http://placehold.it/100x100으로 설정
+$('img').css('src','http://placehold.it/100x100')
+
+//img 태그의 src 스타일 속성과 alt 스타일 속성을 한꺼번에 지정
+$('img').css({
+    src:'http://placehold.it/100x100',
+    alt:'placehold.it'
+})
+```
+
+### 문서 객체 생성
+
+문서 객체를 생성할 때는 $() 함수의 매개 변수에 'HTML 형식의 문자열'을입력
+생성한 문서 객체는 지금 까지 살펴본 메소드를 활용해 내부의 글자,스타일,속성을 조작할 수 있다.
+```javascript
+$('<h1></h1>')
+```
+생성한 문서 객체는 지금 까지 살펴본 메소드를 활용해 내부의 글자,스타일,속성을 조작할 수 있다.
+```javascript
+$('<h1></h1>')
+    .text('안녕하세요')
+    .attr('data-test','test')
+    .css({
+        backgroundColor:'red',
+        color:'white'
+    })
+```
+|메소드|설명|
+|:---|:---|
+|$(<A>).prependTo(<B>)|A를 B안쪽앞에 추가|
+|$(<A>).appendTo(<B>)|A를 B안쪽 뒤에 추가|
+|$(<A>).insertBefore(<B>)|A를 B앞에 추가|
+|$(<A>).insertAfter(<B>)|A를 B뒤에 추가|
+
+### 이벤트
+jQuery의 이벤트 메소드
+|메소드|설명|
+|:---|:---|
+|on()|이벤트를 연결|
+|off()|이벤트를 제거|
+이벤트의 연결 방법에는 직접연결 과 간접연결으로 두가지 방법이 있다
+
+### 이벤트 직접 연결
+이벤트 직접 연결은 '특정 태그에 이벤트를 연결하고, 특정 태그를 눌렀을 때 이벤트가 발생' 하게 하는것
+
+
+jQuery로 이벤트를 직접 연결 할 때는 on()메소드를 사용한다
+이벤트를 연결 할 때 콜백 함수의 매개 변수로 이벤트 객체가 전달한다  
+이벤트 객체 속성과 관련 된 내용
+jQuery-event object:https://api.jquery.com/category/events/event-object/
+```javascript
+//기본형태
+$(<선택자>).on(<이벤트 이름>,<콜백 함수>)
+```
 ## [5월 25일]
 
 ### express 모듈
